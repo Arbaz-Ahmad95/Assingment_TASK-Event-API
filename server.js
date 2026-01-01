@@ -7,9 +7,13 @@ app.use(express.json());
 connectDB();
 
 app.use("/api/v3/app/events", require("./routes/eventsRoutes"));
-
-// Task-2
 app.use("/api/v3/app/nudges", require("./routes/nudgeRoutes"));
+
+
+
+app.get("/", (req, res) => {
+  res.send("Server running");
+});
 
 app.listen(5000, () => {
   console.log("Server running");

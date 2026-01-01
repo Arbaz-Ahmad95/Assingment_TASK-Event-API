@@ -7,8 +7,6 @@ const router = express.Router();
 const nudges = () => getDB().collection("nudges");
 
 
-// ✅ CREATE NUDGE
-// POST /api/v3/app/nudges
 router.post("/", async (req, res) => {
   const nudge = {
     ...req.body,
@@ -20,16 +18,12 @@ router.post("/", async (req, res) => {
 });
 
 
-// ✅ GET ALL NUDGES
-// GET /api/v3/app/nudges
 router.get("/", async (req, res) => {
   const data = await nudges().find().toArray();
   res.json(data);
 });
 
 
-// ✅ GET NUDGE BY ID
-// GET /api/v3/app/nudges/:id
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -42,8 +36,6 @@ router.get("/:id", async (req, res) => {
 });
 
 
-// ✅ UPDATE NUDGE
-// PUT /api/v3/app/nudges/:id
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -60,8 +52,6 @@ router.put("/:id", async (req, res) => {
 });
 
 
-// ✅ DELETE NUDGE
-// DELETE /api/v3/app/nudges/:id
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
